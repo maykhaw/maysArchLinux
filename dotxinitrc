@@ -1,0 +1,31 @@
+#!/bin/sh
+
+
+# setxkbmap dvorak
+export VDPAU_NVIDIA_NO_OVERLA=1
+## Cambridge, Cambridgeshire, UK
+# redshift -l 52.205:0.119 &
+## Singapore
+# 1?17?N 103?50?E
+# redshift -l 1.283333:103.833333 &
+redshift -l -34:152 &
+syndaemon -d -i 1
+setxkbmap dvorak
+netctl 
+
+#
+# ~/.xinitrc
+#
+# Executed by startx (run your window manager from here)
+
+if [ -d /etc/X11/xinit/xinitrc.d ]; then
+  for f in /etc/X11/xinit/xinitrc.d/*; do
+    [ -x "$f" ] && . "$f"
+  done
+  unset f
+fi
+
+exec xmonad 
+# exec startkde
+# exec startxfce4
+# ...or the Window Manager of your choice
