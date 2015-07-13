@@ -1,5 +1,12 @@
 execute pathogen#infect() 
 
+" haskell-vim 
+
+let g:haskell_enable_pattern_synonyms = 1
+let g:haskell_enable_typeroles = 1
+let g:haskell_indent_case = 1
+
+
 set nocompatible
 syntax on
 set fileencoding=utf8
@@ -26,6 +33,7 @@ set smarttab
 " 1 tab == 4 spaces
 set shiftwidth=4
 set tabstop=4
+
 
 set ai "Auto indent
 set si "Smart indent

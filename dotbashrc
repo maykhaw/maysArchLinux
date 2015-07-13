@@ -108,6 +108,10 @@ fi
 export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
 export LESS=' -R '
 
+
+export LANG=en_US.UTF-8
+export LC_MESSAGES="C"
+
 export PATH=$HOME/.cabal/bin:$HOME/bin:$HOME/.xmonad:$PATH
 shopt -s histappend
 
