@@ -10,6 +10,7 @@ export VDPAU_NVIDIA_NO_OVERLA=1
 # redshift -l 1.283333:103.833333 &
 redshift -l -34:152 &
 syndaemon -d -i 1
+xset -dpms &
 setxkbmap dvorak
 netctl 
 
