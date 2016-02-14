@@ -36,8 +36,7 @@ myLayout = noBorders (tabbed shrinkText defaultTheme) ||| noBorders Full  |||  t
              -- smartBorders (layoutHook defaultConfig)
 
 --                           noBorders Full
---                           ||| smartBorders
---                           (MosaicAlt M.empty
+--                           ||| --                           (MosaicAlt M.empty
 --                            ||| Mirror (MosaicAlt M.empty)
 --                            ||| noBorders (tabbed shrinkText defaultTheme)
 -- --                           ||| Mirror (spiral (6/7))
