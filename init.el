@@ -195,6 +195,21 @@
 (setq god-exempt-major-modes nil)
 (setq god-exempt-predicates nil) ; no buffers exempt
 
+
+
+;;;; Rainbow Delimiters --------------------------------------------------------
+
+(require 'rainbow-delimiters)
+
+(add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)
+
+(add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
+
+;;;; Smart Parens -------------------------------------------------------------
+
+(require 'smartparens-config)
+(add-hook 'js-mode-hook #'smartparens-strict-mode) 
+
 ;;;; Keybindings ---------------------------------------------------------------
 
 ;; 'C-h C' describes coding system
