@@ -38,6 +38,9 @@
 (mouse-wheel-mode t)
 (show-paren-mode t)
 (savehist-mode t)                       ; save minibuffer history
+;; (show-paren-mode t nil (paren))
+
+
 
 (add-hook 'text-mode-hook 'visual-line-mode)
 
@@ -87,6 +90,8 @@
 ;; magit needs to use PuTTY/Pageant for remotes which connect via SSH
 (when (equal system-type 'windows-nt)
   (setenv "GIT_SSH" "C:\\Program Files (x86)\\PuTTY\\plink.exe"))
+
+
 
 
 
@@ -205,10 +210,20 @@
 
 (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
 
+
+(require 'cl-lib)
+
+(require 'color)
+(cl-loop
+ for index from 1 to rainbow-delimiters-max-face-count
+ do
+ (let ((face (intern (format "rainbow-delimiters-depth-%d-face" index))))
+   (cl-callf color-saturate-name (face-foreground face) 30)))
+
 ;;;; Smart Parens -------------------------------------------------------------
 
-(require 'smartparens-config)
-(add-hook 'js-mode-hook #'smartparens-strict-mode) 
+;;;; (require 'smartparens-config)
+;;;; (add-hook 'js-mode-hook #'smartparens-strict-mode) 
 
 ;;;; Keybindings ---------------------------------------------------------------
 
