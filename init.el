@@ -9,6 +9,7 @@
 (global-unset-key (kbd "C-x c"))        ; let's not accidentally kill Emacs
 (global-unset-key (kbd "C-t"))          ; transposing characters not useful
 
+
 (global-set-key (kbd "C-c f") 'toggle-frame-fullscreen)
 
 ;; Allows us to use `case'
@@ -28,7 +29,6 @@
               save-place t
               fill-column 80
               comment-column 40)
-
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
@@ -38,9 +38,6 @@
 (mouse-wheel-mode t)
 (show-paren-mode t)
 (savehist-mode t)                       ; save minibuffer history
-;; (show-paren-mode t nil (paren))
-
-
 
 (add-hook 'text-mode-hook 'visual-line-mode)
 
@@ -51,7 +48,7 @@
       echo-keystrokes 0.1
       vc-follow-symlinks t)
 
-(add-to-list 'exec-path "/usr/local/bin") 
+(add-to-list 'exec-path "/usr/local/bin")
 
 ;; Avoid trying to ping some machine in Hong Kong just because you typed
 ;; something.hk: https://github.com/technomancy/emacs-starter-kit/issues/39
@@ -183,19 +180,16 @@
                                (yas/minor-mode 1)
                                (cljr-add-keybindings-with-prefix "C-c C-a")))
 
-
-;;;; Ace-jump mode -------------------------------------------------------------
-(require 'ace-jump-mode)
-(global-set-key (kbd "C-c j") 'ace-jump-mode)
-
-
 ;;;; god-mode ------------------------------------------------------------------
 
 (require 'god-mode)
 
 (global-set-key (kbd "<escape>") 'god-mode-all) ; ESC toggles on/off god-mode
 (define-key god-local-mode-map (kbd ".") 'repeat)
+(define-key god-local-mode-map (kbd "z") 'other-window)
 
+
+;; (local-set-key (kbd "z") 'other-window)
 
 (setq god-exempt-major-modes nil)
 (setq god-exempt-predicates nil) ; no buffers exempt
@@ -252,6 +246,7 @@
 
 (global-set-key "\C-cg" 'magit-status)
 (global-set-key "\C-cG" 'vc-git-grep)
+
 
 
 ;;;; Registers -----------------------------------------------------------------
