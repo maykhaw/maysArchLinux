@@ -8,7 +8,7 @@
 
 (global-unset-key (kbd "C-x c"))        ; let's not accidentally kill Emacs
 (global-unset-key (kbd "C-t"))          ; transposing characters not useful
-
+(global-unset-key (kbd "C-:"))          ; changing keywords into characters not useful
 
 (global-set-key (kbd "C-c f") 'toggle-frame-fullscreen)
 
@@ -189,11 +189,18 @@
 (define-key god-local-mode-map (kbd "z") 'other-window)
 
 
-;; (local-set-key (kbd "z") 'other-window)
-
 (setq god-exempt-major-modes nil)
 (setq god-exempt-predicates nil) ; no buffers exempt
 
+;;;; changecolors for god-mode ------------------------------------------------
+
+(defun my-update-cursor ()
+  (setq cursor-type (if (or god-local-mode buffer-read-only)
+                        'box
+                      'bar)))
+
+(add-hook 'god-mode-enabled-hook 'my-update-cursor)
+(add-hook 'god-mode-disabled-hook 'my-update-cursor)
 
 
 ;;;; Rainbow Delimiters --------------------------------------------------------
@@ -213,11 +220,6 @@
  do
  (let ((face (intern (format "rainbow-delimiters-depth-%d-face" index))))
    (cl-callf color-saturate-name (face-foreground face) 30)))
-
-;;;; Smart Parens -------------------------------------------------------------
-
-;;;; (require 'smartparens-config)
-;;;; (add-hook 'js-mode-hook #'smartparens-strict-mode) 
 
 ;;;; Keybindings ---------------------------------------------------------------
 
