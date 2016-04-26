@@ -6,9 +6,9 @@
 
 ;;;; General options -----------------------------------------------------------
 
-(global-unset-key (kbd "C-x c"))        ; let's not accidentally kill Emacs
-(global-unset-key (kbd "C-t"))          ; transposing characters not useful
-(global-unset-key (kbd "C-:"))          ; changing keywords into characters not useful
+;; (global-unset-key (kbd "C-x c"))        ; let's not accidentally kill Emacs
+;; (global-unset-key (kbd "C-t"))          ; transposing characters not useful
+;; (global-unset-key (kbd "C-:"))          ; changing keywords into characters not useful
 
 (global-set-key (kbd "C-c f") 'toggle-frame-fullscreen)
 
@@ -75,15 +75,6 @@
 
 ;;;; Platform-specific customisations ------------------------------------------
 
-;; PATH on Mac OS X missing ~/bin because it's not launched from bash
-;; http://stackoverflow.com/a/15728130
-(when (equal system-type 'darwin)
-  (setq explicit-bash-args (list "--login" "-i"))
-  (let ((path-from-shell
-         (shell-command-to-string "$SHELL -i -l -c 'echo $PATH'")))
-    (setenv "PATH" path-from-shell)
-    (setq exec-path (split-string path-from-shell path-separator))))
-
 ;; magit needs to use PuTTY/Pageant for remotes which connect via SSH
 (when (equal system-type 'windows-nt)
   (setenv "GIT_SSH" "C:\\Program Files (x86)\\PuTTY\\plink.exe"))
@@ -115,7 +106,7 @@
 (package-initialize)
 
 
-(add-hook 'after-init-hook 'global-company-mode)
+;;; (add-hook 'after-init-hook 'global-company-mode)
 
 (setq magit-last-seen-setup-instructions "1.4.0")
 
@@ -171,15 +162,6 @@
       uniquify-ignore-buffers-re "^\\*") ; don't screw with special buffers
 
 
-
-
-;;;; Clj-refactor --------------------------------------------------------------
-(require 'clj-refactor)
-(add-hook 'clojure-mode-hook (lambda ()
-                               (clj-refactor-mode 1)
-                               (yas/minor-mode 1)
-                               (cljr-add-keybindings-with-prefix "C-c C-a")))
-
 ;;;; god-mode ------------------------------------------------------------------
 
 (require 'god-mode)
@@ -207,14 +189,12 @@
 
 (require 'rainbow-delimiters)
 
-(add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)
-
-(add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
-
-
 (require 'cl-lib)
 
 (require 'color)
+
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+
 (cl-loop
  for index from 1 to rainbow-delimiters-max-face-count
  do
@@ -235,6 +215,7 @@
 (global-set-key "\C-cb" 'bury-buffer)
 
 ;; searches might as well be regexps
+
 (global-set-key "\C-s" 'isearch-forward-regexp)
 (global-set-key "\C-r" 'isearch-backward-regexp)
 
@@ -270,18 +251,6 @@
   (load-theme 'junio))
 
 
-
-;;;; .emacs config for encouraging staying under 100 cols
-;; (defvar no-whitespace-highlighting-modes
-;;   '(Man-mode
-;;     calendar-mode
-;;     ...))
-
-;; (use-package highlight-beyond-fill-column
-;;   :config (add-hook 'font-lock-mode-hook
-;;             (lambda ()
-;;               (unless (member major-mode no-whitespace-highlighting-modes)
-;;                 (highlight-beyond-fill-column)))))
 
 (require 'whitespace)
 (setq whitespace-line-column 100)

@@ -49,7 +49,7 @@ myLayout = noBorders (tabbed shrinkText defaultTheme) ||| noBorders Full  |||  t
 defaults = defaultConfig
            { terminal           = "terminator"
            -- In xmonad focus follows mouse, this line also makes mouse follow focus:
-           , logHook = updatePointer (Relative 0.5 0.5)
+           -- , logHook = updatePointer (Relative 0.5 0.5)
            -- $ defaultPP { ppOutput = hPutStrLn h }
            , manageHook  = myManageHook
            , layoutHook = myLayout
