@@ -171,15 +171,6 @@
       uniquify-ignore-buffers-re "^\\*") ; don't screw with special buffers
 
 
-
-
-;;;; Clj-refactor --------------------------------------------------------------
-(require 'clj-refactor)
-(add-hook 'clojure-mode-hook (lambda ()
-                               (clj-refactor-mode 1)
-                               (yas/minor-mode 1)
-                               (cljr-add-keybindings-with-prefix "C-c C-a")))
-
 ;;;; god-mode ------------------------------------------------------------------
 
 (require 'god-mode)
@@ -220,6 +211,30 @@
  do
  (let ((face (intern (format "rainbow-delimiters-depth-%d-face" index))))
    (cl-callf color-saturate-name (face-foreground face) 30)))
+
+;;;; Smartparens
+(require 'smartparens-config)
+(add-hook 'clojure-mode-hook #'smartparens-mode)
+(add-hook 'clojurescript-mode-hook #'smartparens-mode)
+
+
+;;;; Revert all buffers
+
+;; http://blog.plover.com/prog/revert-all.html
+(defun revert-all-buffers ()
+  "Refreshes all open buffers from their respective files"
+  (interactive)
+  (let* ((list (buffer-list))
+         (buffer (car list)))
+    (while buffer
+      (when (and (buffer-file-name buffer)
+                 (not (buffer-modified-p buffer)))
+        (set-buffer buffer)
+        (revert-buffer t t t))
+      (setq list (cdr list))
+      (setq buffer (car list))))
+  (message "Refreshed open files"))
+
 
 ;;;; Keybindings ---------------------------------------------------------------
 

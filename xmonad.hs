@@ -43,7 +43,7 @@ myLayout = noBorders (tabbed shrinkText defaultTheme) ||| noBorders Full  |||  t
 -- --                           ||| Mirror (spiral (6/7))
 -- --                           ||| tiled ||| Mirror tiled
 --                           )
-             
+
 -- smartBorders $ layoutHook defaulConfig
 
 defaults = defaultConfig
@@ -59,13 +59,13 @@ defaults = defaultConfig
            , keys = newKeys
            }
            `additionalKeysP`
-           [("M-w", viewScreen 0)
-           ,("M-S-w", sendToScreen 0)
-           ,("M-v", viewScreen 1)
-           ,("M-S-v", sendToScreen 1)]
+           [("M-v", viewScreen 0)
+           ,("M-S-v", sendToScreen 0)
+           ,("M-w", viewScreen 1)
+           ,("M-S-w", sendToScreen 1)]
     -- default tiling algorithm partitions the screen into two panes
     -- The default number of windows in the master pane
-    where tiled   = X.Tall nmaster delta ratio 
+    where tiled   = X.Tall nmaster delta ratio
           nmaster    = 1
           ratio      = 1/2
           delta      = 3/100
