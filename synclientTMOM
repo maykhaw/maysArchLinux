@@ -54,7 +54,7 @@ Parameter settings:
     AreaLeftEdge            = 0
     AreaRightEdge           = 0
     AreaTopEdge             = 0
-    AreaBottomEdge          = 0
+    AreaBottomEdge          = 4000
     HorizHysteresis         = 12
     VertHysteresis          = 12
     ClickPad                = 0
