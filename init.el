@@ -212,12 +212,6 @@
  (let ((face (intern (format "rainbow-delimiters-depth-%d-face" index))))
    (cl-callf color-saturate-name (face-foreground face) 30)))
 
-;;;; Smartparens
-(require 'smartparens-config)
-(add-hook 'clojure-mode-hook #'smartparens-mode)
-(add-hook 'clojurescript-mode-hook #'smartparens-mode)
-
-
 ;;;; Revert all buffers
 
 ;; http://blog.plover.com/prog/revert-all.html
