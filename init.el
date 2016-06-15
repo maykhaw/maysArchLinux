@@ -201,6 +201,38 @@
  (let ((face (intern (format "rainbow-delimiters-depth-%d-face" index))))
    (cl-callf color-saturate-name (face-foreground face) 30)))
 
+
+;;;; larger fonts for Bryan
+(defun global-text-scale-adjust (inc)
+  (interactive)
+  (text-scale-set 1)
+  (kill-local-variable 'text-scale-mode-amount)
+  (setq-default text-scale-mode-amount (+ text-scale-mode-amount inc))
+  (global-text-scale-mode 1))
+
+(defun big-er ()
+  (interactive)
+  (text-scale-set 1)
+  (global-text-scale-adjust 1))
+
+(defun lil-er ()
+  (interactive)
+  (text-scale-set 1)
+  (global-text-scale-adjust -1))
+
+;;;; Smartparens
+(require 'smartparens-config)
+(add-hook 'prog-mode-hook #'smartparens-mode)
+
+;;;; Just CLJS Things
+
+(defun init-figwheel-repl ()
+  (interactive)
+  (insert
+   ";; Hit enter to start the figwheel repl.
+(do (require 'figwheel-sidecar.repl-api)
+    (figwheel-sidecar.repl-api/cljs-repl))"))
+
 ;;;; Keybindings ---------------------------------------------------------------
 
 ;; 'C-h C' describes coding system

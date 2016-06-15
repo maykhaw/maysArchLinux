@@ -106,7 +106,7 @@ fi
 
 # ls doesn't like this.  But I remember enabling it for tree, or so.
 #export LS_COLORS="yes"
-    export EDITOR=vim
+    export EDITOR=emacsclient
 
 export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
 export LESS=' -R '
