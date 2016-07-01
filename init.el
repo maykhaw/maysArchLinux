@@ -223,6 +223,8 @@
 ;;;; Smartparens
 (require 'smartparens-config)
 (add-hook 'prog-mode-hook #'smartparens-mode)
+(sp-local-pair 'clojure-mode "#{" "}")
+(sp-local-pair 'clojure-mode "#(" ")")
 
 ;;;; Just CLJS Things
 
