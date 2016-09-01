@@ -24,6 +24,110 @@
            (negated-fnk 1)
            (action-fnk 1)
            (auditing 2)
+           (pb/\?> 1)
+           (reg-sub-raw
+            (quote
+             (:defn)))
+           (reg-sub
+            (quote
+             (:defn)))
+           (reg-fx
+            (quote
+             (:defn)))
+           (reg-cofx
+            (quote
+             (:defn)))
+           (reg-event-db
+            (quote
+             (:defn)))
+           (reg-event-fx
+            (quote
+             (:defn)))
+           (reg-event-ctx
+            (quote
+             (:defn)))
+           (run-test-async 0)
+           (run-test-sync 0)
+           (wait-for
+            (quote
+             (:defn))))
+     (eval define-clojure-indent
+           (alet 1)
+           (mlet 1)
+           (match 1)
+           (matchm 1)
+           (fact 1)
+           (facts 1)
+           (provided 0)
+           (for-all 1)
+           (this-as 1)
+           (fnk 1)
+           (letk 1)
+           (decision-fnk 1)
+           (negated-fnk 1)
+           (action-fnk 1)
+           (auditing 2)
+           (pb/\?> 1)
+           (reg-sub-raw
+            (quote
+             (:defn)))
+           (reg-sub
+            (quote
+             (:defn)))
+           (reg-fx
+            (quote
+             (:defn)))
+           (reg-cofx
+            (quote
+             (:defn)))
+           (reg-event-db
+            (quote
+             (:defn)))
+           (reg-event-fx
+            (quote
+             (:defn)))
+           (reg-event-ctx
+            (quote
+             (:defn))))
+     (eval define-clojure-indent
+           (alet 1)
+           (mlet 1)
+           (match 1)
+           (matchm 1)
+           (fact 1)
+           (facts 1)
+           (provided 0)
+           (for-all 1)
+           (this-as 1)
+           (fnk 1)
+           (letk 1)
+           (decision-fnk 1)
+           (negated-fnk 1)
+           (action-fnk 1)
+           (auditing 2)
+           (pb/\?> 1)
+           (def-event
+             (quote
+              (:defn)))
+           (register-sub
+            (quote
+             (:defn))))
+     (eval define-clojure-indent
+           (alet 1)
+           (mlet 1)
+           (match 1)
+           (matchm 1)
+           (fact 1)
+           (facts 1)
+           (provided 0)
+           (for-all 1)
+           (this-as 1)
+           (fnk 1)
+           (letk 1)
+           (decision-fnk 1)
+           (negated-fnk 1)
+           (action-fnk 1)
+           (auditing 2)
            (pb/\?> 1))
      (eval define-clojure-indent
            (alet 1)
