@@ -1,5 +1,3 @@
-execute pathogen#infect() 
-
 " haskell-vim 
 
 let g:haskell_enable_pattern_synonyms = 1
@@ -11,7 +9,7 @@ set nocompatible
 syntax on
 set fileencoding=utf8
 set backspace=2
-filetype indent on
+filetype indent on  
 set autoindent
 set background=dark
 " Ignore case when searching
@@ -36,6 +34,7 @@ set tabstop=4
 
 
 set ai "Auto indent
-set si "Smart indent
+" set si "Smart indent
 set wrap "Wrap lines
 
+let g:tex_flavor='latex'
