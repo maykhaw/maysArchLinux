@@ -3,7 +3,7 @@
 # for examples
 
 # If not running interactively, don't do anything
-[ -z "$PS1" ] && return
+[[ $- != *i* ]] && return
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # don't overwrite GNU Midnight Commander's setting of `ignorespace'.
@@ -106,7 +106,7 @@ fi
 
 # ls doesn't like this.  But I remember enabling it for tree, or so.
 #export LS_COLORS="yes"
-    export EDITOR=emacsclient
+    export EDITOR=vim
 
 export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
 export LESS=' -R '
@@ -118,11 +118,8 @@ export LC_MESSAGES="C"
 export WECHALLUSER="starfishwife"
 export WECHALLTOKEN="75200-6AED4-DC285-5B124-1B985-B5903"
 
-export PATH=$HOME/.cabal/bin:$HOME/bin:$HOME/.xmonad:$PATH
+export PATH="$HOME/.local/bin:$PATH"
 shopt -s histappend
-
-source ~/programming/bash/prompt_pwd.bash
-. ~/programming/z/z.sh
 
 # export PYTHONSTARTUP="$HOME/.pythonstartup.py"
 
