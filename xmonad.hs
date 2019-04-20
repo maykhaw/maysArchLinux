@@ -27,13 +27,13 @@ modm = mod4Mask
 
 --modm = XMonad.modMask
 
-myLayout = noBorders (tabbed shrinkText defaultTheme) ||| noBorders Full  |||  tiled ||| Mirror tiled ||| MosaicAlt M.empty
+myLayout = noBorders (tabbed shrinkText def) ||| tiled ||| Mirror tiled ||| MosaicAlt M.empty
   where tiled = Tall nmaster delta ratio
         nmaster = 1
         ratio = 1/2
         delta = 3/100
 
-             -- smartBorders (layoutHook defaultConfig)
+             -- smartBorders (layoutHook def)
 
 --                           noBorders Full
 --                           ||| smartBorders
@@ -46,7 +46,7 @@ myLayout = noBorders (tabbed shrinkText defaultTheme) ||| noBorders Full  |||  t
              
 -- smartBorders $ layoutHook defaulConfig
 
-defaults = defaultConfig
+defaults = def
            { terminal           = "terminator"
            -- In xmonad focus follows mouse, this line also makes mouse follow focus:
            -- , logHook = updatePointer (Relative 0.5 0.5)
@@ -59,10 +59,10 @@ defaults = defaultConfig
            , keys = newKeys
            }
            `additionalKeysP`
-           [("M-w", viewScreen 0)
-           ,("M-S-w", sendToScreen 0)
-           ,("M-v", viewScreen 1)
-           ,("M-S-v", sendToScreen 1)]
+           [("M-w", viewScreen def 0)
+           ,("M-S-w", sendToScreen def 0)
+           ,("M-v", viewScreen def 1)
+           ,("M-S-v", sendToScreen def 1)]
     -- default tiling algorithm partitions the screen into two panes
     -- The default number of windows in the master pane
     where tiled   = X.Tall nmaster delta ratio 
@@ -77,10 +77,10 @@ defaults = defaultConfig
 -- pushes all floating win3dows back into tiling with mod-shift-t:
 myKeys conf@(XConfig {XMonad.modMask = modm}) = []
 --    [((modm .|. shiftMask, xK_t), sinkAll)]
-newKeys x  = M.union (keys defaultConfig x) (M.fromList (myKeys x))
+newKeys x  = M.union (keys def x) (M.fromList (myKeys x))
 
 -- Define the workspace an application has to go to
-myManageHook = (className =? "rdesktop" --> doF (W.shift "6")) <+> manageHook defaultConfig
+myManageHook = (className =? "rdesktop" --> doF (W.shift "6")) <+> manageHook def
                -- composeAll . concat $
 --            [  -- The applications that float
             --   [ className =? i --> doFloat | i <- myClassFloats]

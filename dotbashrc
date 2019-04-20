@@ -118,7 +118,7 @@ export LC_MESSAGES="C"
 export WECHALLUSER="starfishwife"
 export WECHALLTOKEN="75200-6AED4-DC285-5B124-1B985-B5903"
 
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.xmonad:$HOME/.local/bin:$PATH"
 shopt -s histappend
 
 # export PYTHONSTARTUP="$HOME/.pythonstartup.py"

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cd $HOME/.xmonad
+stack ghc xmonad.hs 
+
+cp xmonad xmonad-x86_64-linux
