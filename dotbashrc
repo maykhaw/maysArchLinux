@@ -128,3 +128,6 @@ case "$TERM" in
 	xterm) export PS1=$PS1"\[\e]0;\H:\w\a\]";;
 	xterm-color) export PS1=$PS1"\[\e]0;\H:\w\a\]";;
 esac
+
+# For LaTeX
+export TEXINPUTS="~/knitdict:"
